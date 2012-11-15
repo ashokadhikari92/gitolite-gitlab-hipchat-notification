@@ -22,12 +22,9 @@ def speak(message)
 end
 
 repository = CONFIG['repository'] ||= File.basename(Dir.getwd, ".git")
-if CONFIG['gitweb_url']
-  repo_url = "#{CONFIG['gitweb_url']}/#{repository}.git/"
+if CONFIG['gitlab_url']
+  repo_url = "#{CONFIG['gitlab_url']}/#{repository}/"
   commit_url = repo_url + "commit/"
-elsif CONFIG['cgit_url']
-  repo_url = "#{CONFIG['cgit_url']}/#{repository}/"
-  commit_url = repo_url + "commit/?id="
 else
   repo_url = commit_url = nil
 end
